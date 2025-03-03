@@ -92,6 +92,16 @@ export class AdminService {
 
   }
 
+  postFAQ(postFAQDTO:any) :Observable<any>{
+
+    return this.http.post(BASIC_URL+"/api/admin/postFAQ",postFAQDTO,{
+      headers:this.createAuthorizationHeader()
+    });
+
+  }
+
+
+
 
 
 

@@ -8,6 +8,7 @@ import { ProductComponent } from './Components/product/product.component';
 import { OrdersComponent } from './Components/orders/orders.component';
 import { PostcouponComponent } from './Components/postcoupon/postcoupon.component';
 import { CouponsComponent } from './Components/coupons/coupons.component';
+import { PostfaqComponent } from './Components/postfaq/postfaq.component';
 
 const routes:Routes = [
   {
@@ -37,7 +38,12 @@ const routes:Routes = [
   {
     path:"coupons",
     component:CouponsComponent
+  },
+  {
+    path:"postfaq/:id",
+    component:PostfaqComponent
   }
+
 ]
 
 @NgModule({
