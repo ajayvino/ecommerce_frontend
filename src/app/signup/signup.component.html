@@ -1,0 +1,90 @@
+<div class="container">
+  <div class="d-flex justify-content-center m-5" >
+    <div class="card d-flex justify-content-center" style="width: 30%;height: 60%; background-color:#528de6;">
+      <h4 class="text-center text-white fw-bold py-3" style="font-size:30px">Register Form</h4>
+      <div class="card-body">
+        <div class="row text-center d-flex justify-content-center">
+          <div class="col-lg-12">
+                <form [formGroup]="userform">
+
+                  <div class="mb-3">
+                    <label for="name" class="form-label text-white fw-bold" style="font-size: 20px;">Username</label>
+                    <input type="text" class="form-control " formControlName="username" style="width:100% ;" id="username" placeholder="UserName">
+                    <div class="text-danger fw-bold">
+                      @if (userform.controls['username'].touched) {
+
+                      @if (userform.controls['username'].hasError('required')) {
+
+                      <span>Username is Required</span>
+                      }
+                      }
+                    </div>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="name" class="form-label text-white fw-bold" style="font-size: 20px;">Email</label>
+                    <input type="text" class="form-control " formControlName="email" style="width:100% ;" id="email" placeholder="Email">
+                    <div class="text-danger fw-bold">
+                      @if (userform.controls['email'].touched) {
+
+                      @if (userform.controls['email'].hasError('required')) {
+
+                      <span>Email is Required</span>
+                      }
+                      @if (userform.controls['email'].hasError('email')) {
+
+                        <span>Email is Required</span>
+                        }
+                      }
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="password" class="form-label fw-bold text-white" style="font-size: 20px;" >Password</label>
+                    <div class="d-flex">
+                      <input matInput type="{{passwordvisibility ? 'text' :'password'}}" class="form-control" formControlName="password" id="password" placeholder="Password">
+                      <button class="bg-transparent" style="margin-left: -40px; border:none" type="button" mat-icon-button matSuffix (click)="togglevisibility()">
+                        <mat-icon>{{!passwordvisibility? 'visibility_off' :'visibility'}}</mat-icon>
+                      </button>
+
+                    </div>
+                    <div class="text-danger fw-bold">
+                      @if (userform.controls['password'].touched) {
+
+                      @if (userform.controls['password'].hasError('required')) {
+
+                      <span>Password is Required</span>
+                      }
+                      @if (userform.controls['password'].hasError('minlength')) {
+
+                        <span>Password should be atleast 6 characters</span>
+                        }
+                      }
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="confirmpassword" class="form-label fw-bold text-white" style="font-size: 20px;">Confirm Password</label>
+                    <input type="password" class="form-control" formControlName="confirmpassword" id="confirmpassword"
+                      placeholder="Confirm Password">
+                    <div class="text-danger fw-bold">
+                      @if (userform.controls['confirmpassword'].touched) {
+
+                      @if (userform.controls['confirmpassword'].hasError('required')) {
+
+                      <span>Confirm Password is Required</span>
+                      }
+                      }
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-center mt-4">
+                    <button (click)="onusersave()" mat-fab extended [disabled]="userform.invalid" type="submit" class="btn text-white fw-bold" style="background: #e4860a;">Register</button>
+                  </div>
+                </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+</div>

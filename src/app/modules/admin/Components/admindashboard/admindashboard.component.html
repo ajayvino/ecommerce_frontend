@@ -1,0 +1,101 @@
+<form [formGroup]="searchproductform" (input)="searchTask()" style="display: flex; align-items: center;justify-content: center; margin-top: 20px;">
+
+  <div class="mb-3">
+
+    <input type="text" class="form-control " formControlName="productname" style="width:300px ;" id="name" placeholder="Search Products">
+
+    </div>
+
+
+</form>
+
+
+
+
+<div class="container">
+  <div class="row mt-2" >
+
+    @for(item of productsList; track $index){
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4">
+
+        <div class="card  h-100 ">
+          <div class="row">
+            <div class="col-12">
+
+              <img [src]="item.img | bytearray2img : 'image/jpeg'" class="img-fluid rounded-2 w-100" alt="produt-image" style="height: 300px">
+
+            </div>
+
+            <div class="col-12">
+              <div class="card-body">
+                <div class="row">
+
+
+                  <div class="col-12">
+                    <span><strong>{{item.name}}</strong></span>
+
+                  </div>
+
+                  <div class="row">
+                    <div class="col-12">
+                      <span><strong>{{item.description}}</strong></span>
+
+                    </div>
+
+                  </div>
+
+
+                </div>
+                <br>
+                <div class="row">
+
+                  <div class="col-6">
+                    <span> <strong>Price : Rs {{item.price}}</strong></span>
+
+                  </div>
+
+                  <div class="col-6">
+                    <span> <strong> Category: {{item.categoryname}} </strong></span>
+
+                  </div>
+
+
+                </div>
+
+                <br>
+
+                <div class="row mt-4" style="display: flex;align-items: center; justify-content:end;">
+
+
+                  <button  type="button" mat-icon-button matSuffix routerLink="/admin/task/{{item.id}}/view">
+                    <mat-icon>visibility</mat-icon>
+                  </button>
+                  <button  type="button" mat-icon-button matSuffix routerLink="/admin/task/{{item.id}}/edit">
+                    <mat-icon>edit</mat-icon>
+                  </button>
+                  <button (click)="deleteProduct(item.id)"  type="button" mat-icon-button matSuffix>
+                    <mat-icon>delete</mat-icon>
+                  </button>
+
+                </div>
+
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    }
+
+
+  </div>
+</div>
+
+
+
+
+

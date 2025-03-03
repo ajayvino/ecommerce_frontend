@@ -1,0 +1,94 @@
+<div class="container">
+  <br>
+<h3 style="color: blueviolet;text-align: center;">Orders List</h3>
+
+
+
+  <br>
+
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+
+    <ng-container matColumnDef="TrackingId">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Tracking Id </th>
+      <td mat-cell *matCellDef="let ordersLists"> {{ordersLists.trackingid}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="OrderId">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Order Id </th>
+      <td mat-cell *matCellDef="let ordersLists"> {{ordersLists.id}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="User Name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>User Name </th>
+      <td mat-cell *matCellDef="let ordersLists"> {{ordersLists.username}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="Amount">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Amount </th>
+      <td mat-cell *matCellDef="let ordersLists"> {{ordersLists.amount}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="Description">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
+      <td mat-cell *matCellDef="let ordersLists"> {{ordersLists.orderdescription}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Address">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Address</th>
+      <td mat-cell *matCellDef="let ordersLists"> {{ordersLists.address}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Date">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Date</th>
+      <td mat-cell *matCellDef="let ordersLists"> {{ordersLists.date | date :"medium"}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Status">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+      <td mat-cell *matCellDef="let ordersLists"> {{ordersLists.orderStatus}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Action">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Action</th>
+      <td mat-cell *matCellDef="let ordersLists">
+        <button mat-raised-button color="primary" [matMenuTriggerFor]="menu">
+
+          Action
+
+        </button>
+
+        <mat-menu #menu="matMenu">
+          <span>
+            <span>
+              <button (click)="updateStatus(ordersLists.id,'Shipped')" mat-menu-item>Shipped</button>
+            </span>
+            <span>
+              <button (click)="updateStatus(ordersLists.id,'Delivered')" mat-menu-item>Delivered</button>
+            </span>
+          </span>
+
+        </mat-menu>
+      </td>
+    </ng-container>
+
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let ordersListss; columns: displayedColumns;"></tr>
+  </table>
+
+  <br>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 15]"
+                 showFirstLastButtons
+                 aria-label="Select page of periodic elements">
+  </mat-paginator>
+
+
+
+</div>
+

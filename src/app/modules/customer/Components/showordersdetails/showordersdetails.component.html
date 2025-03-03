@@ -1,0 +1,40 @@
+<table class="table" style="width: 500px;">
+  <thead>
+    <tr>
+      <th scope="col">S.no</th>
+      <th scope="col">Product Name</th>
+      <th scope="col">Qty</th>
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+  @for (item of cartItemsList.cartitems ; track $index) {
+
+    <tr>
+      <td>{{$index+1}}</td>
+      <td>{{item.productname}}</td>
+      <td>{{item.quantity}}</td>
+      <td>{{item.price}}</td>
+    </tr>
+  }
+
+
+</table>
+
+<div class="container d-flex flex-column align-items-end ">
+
+  <div>
+    <span><strong>Total Amount : </strong> <strong>{{cartItemsList.totalAmount | currency:"INR"}}</strong>  </span>
+  </div>
+  <div>
+    <span><strong>Discount : </strong> <strong>{{cartItemsList.discount | currency:"INR"}}</strong>  </span>
+  </div>
+  <div>
+    <span><strong>Payable Amount : </strong> <strong>{{cartItemsList.amount | currency:"INR"}}</strong>  </span>
+  </div>
+
+
+
+
+
+</div>
