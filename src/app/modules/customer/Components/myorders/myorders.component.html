@@ -77,7 +77,7 @@
 
         @if(ordersLists.orderStatus == "DELIVERED"){
 
-          <button mat-raised-button color="primary">
+          <button routerLink="/customer/reviewproduct/{{ordersLists.id}}" mat-raised-button color="primary">
 
             Review
 

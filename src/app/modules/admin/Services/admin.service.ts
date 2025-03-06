@@ -100,6 +100,34 @@ export class AdminService {
 
   }
 
+  getAllProductsById(id:number):Observable<any>{
+
+    return this.http.get(BASIC_URL+`/api/admin/productinfo/${id}`,{
+      headers:this.createAuthorizationHeader()
+    });
+
+  }
+
+  updateProduct(productid:number, productDTO:any) :Observable<any>{
+
+    return this.http.put(BASIC_URL+`/api/admin/updateProduct/${productid}`,productDTO,{
+      headers:this.createAuthorizationHeader()
+    });
+
+  }
+
+  getAllAnalytics():Observable<any>{
+
+    return this.http.get(BASIC_URL+`/api/admin/order/analytics`,{
+      headers:this.createAuthorizationHeader()
+    });
+
+  }
+
+
+
+
+
 
 
 

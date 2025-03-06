@@ -6,18 +6,14 @@
 
     </div>
 
-
 </form>
-
-
-
 
 <div class="container">
   <div class="row mt-2" >
 
     @for(item of productsList; track $index){
 
-      <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4">
+      <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4" (click)="navigatetourl(item.id)">
 
         <div class="card  h-100 ">
           <div class="row">
@@ -33,7 +29,7 @@
 
 
                   <div class="col-12">
-                    <span><strong>{{item.name}}</strong></span>
+                    <span><a href="/customer/viewproduct/{{item.id}}"><strong>{{item.name}}</strong></a></span>
 
                   </div>
 
@@ -72,11 +68,15 @@
                     <mat-icon class="m-0 p-0">shopping_cart</mat-icon>
                   </button>
 
+                  <button type="button" mat-icon-button matSuffix matTooltip="Click To Add To Favorites"  (click)="addtowishlist(item.id)" >
+
+                    <mat-icon>favorite</mat-icon>
+
+
+
+                  </button>
 
                 </div>
-
-
-
 
               </div>
             </div>

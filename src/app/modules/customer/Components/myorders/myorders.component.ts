@@ -18,12 +18,13 @@ import {
   MatDialogTitle,
 } from '@angular/material/dialog';
 import { ShowordersdetailsComponent } from '../showordersdetails/showordersdetails.component';
+import { RouterLink } from '@angular/router';
 
 
 
 @Component({
   selector: 'app-myorders',
-  imports: [MatTableModule,MatPaginator,DatePipe,MatButtonModule,MatMenuModule,CurrencyPipe,MatIconModule],
+  imports: [MatTableModule,MatPaginator,DatePipe,MatButtonModule,MatMenuModule,CurrencyPipe,MatIconModule,RouterLink],
   templateUrl: './myorders.component.html',
   styleUrl: './myorders.component.css'
 })

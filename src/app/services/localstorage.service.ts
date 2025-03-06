@@ -35,7 +35,7 @@ export class LocalstorageService {
    static getUserRole():string {
     const user = this.getUser();
 
-    return user ? user.role :null;
+    return user ? user.role :'';
    }
 
    static isAdminLoggedIn():boolean{
@@ -57,14 +57,14 @@ export class LocalstorageService {
     return role === "CUSTOMER"
    }
 
-   static getUserId():number {
+   static getUserId():any {
     const user = this.getUser();
     return user ? user.id :null
    }
 
    static getUserName():string {
     const user = this.getUser();
-    return user ? user.name :null
+    return user ? user.name :''
    }
 
    static hasToken():boolean{

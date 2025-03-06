@@ -19,6 +19,12 @@ export class AuthService {
     return this.http.post(BASIC_URL + "/api/auth/login",loginDTO);
    }
 
+   getTrackingStatus(trackingId:number):Observable<any>{
+
+    return this.http.get(BASIC_URL+`/api/auth/trackorder/${trackingId}`);
+
+  }
+
 
 
 }

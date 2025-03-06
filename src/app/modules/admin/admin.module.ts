@@ -9,6 +9,7 @@ import { OrdersComponent } from './Components/orders/orders.component';
 import { PostcouponComponent } from './Components/postcoupon/postcoupon.component';
 import { CouponsComponent } from './Components/coupons/coupons.component';
 import { PostfaqComponent } from './Components/postfaq/postfaq.component';
+import { UpdateProductComponent } from './Components/update-product/update-product.component';
 
 const routes:Routes = [
   {
@@ -42,7 +43,12 @@ const routes:Routes = [
   {
     path:"postfaq/:id",
     component:PostfaqComponent
-  }
+  },
+  {
+    path:"updateProduct/:id",
+    component:UpdateProductComponent
+  },
+
 
 ]
 

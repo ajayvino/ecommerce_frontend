@@ -1,0 +1,124 @@
+<div class="container mt-2">
+
+  @for (item of orderitemslists.cartitems; track $index) {
+
+    <div class="row mb-2">
+      <div class="card">
+        <div class="row">
+          <div class="col-6 d-flex justify-content-center">
+
+            <img class="img-fluid" [src]="item.returnedImg | bytearray2img : 'image/jpeg'" alt="">
+
+          </div>
+          <div class="col-6 d-flex flex-column align-items-center justify-content-center">
+            <div class="row">
+              <h4>{{item.productname}}</h4>
+            </div>
+            <div class="row">
+              <h4>{{item.price | currency:"INR"}}</h4>
+            </div>
+            <div class="row">
+              @if(showReview && reviewID == item.id){
+                <button (click)="discardReview()" mat-raised-button class="w-100">Discard Review</button>
+              }
+              @else {
+
+                <button (click)="giveReview(item.id)" mat-raised-button class="w-100">Review</button>
+              }
+            </div>
+
+
+
+              @if(showReview && reviewID == item.id){
+
+                <div class="row mt-4">
+                  <div>
+                    <div class="d-flex justify-content-center mb-4">
+                      @if(imagePreview !=null ){
+                        <img id="selectedAvatar" [src]="imagePreview"
+                        class="rounded-circle" style="width: 200px; height: 200px; object-fit: cover;" alt="example placeholder" />
+                      }
+                      @else {
+
+                        <img  id="selectedAvatar" src="https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg"
+                        class="rounded-circle" style="width: 50px; height: 50px; object-fit: cover;" alt="example placeholder" />
+                      }
+                    </div>
+                    <div class="d-flex justify-content-center ">
+                        <div data-mdb-ripple-init class="btn btn-primary btn-rounded">
+                          <label>
+                            <div class="d-flex justify-content-center align-items-center">
+
+                              <span class="align-content-center">Select a File</span>
+                              <input mat-input type="file" id="fileInput" (change)="onFileSelected($event)" hidden>
+                              <mat-icon >attach_file</mat-icon>
+                            </div>
+
+                          </label>
+
+
+
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+                <form [formGroup]="reviewForm">
+
+                  <div class="row">
+                    <mat-form-field #rating>
+                      <mat-label>Rating</mat-label>
+                      <select matNativeControl formControlName="rating" required>
+                        <option value="1">1 Star</option>
+                        <option value="2">2 Star</option>
+                        <option value="3">3 Star</option>
+                        <option value="4">4 Star</option>
+                        <option value="5">5 Star</option>
+                      </select>
+                    </mat-form-field>
+                  </div>
+
+                  <div class="row">
+                    <mat-form-field class="m-2 w-100">
+                      <mat-label>Review</mat-label>
+                      <input formControlName="description" matInput type="text" placeholder="Write Your Review">
+
+                    </mat-form-field>
+                  </div>
+
+
+                      <div class="row">
+
+                        <div class="d-flex text-center">
+
+                          <button [disabled]="reviewForm.invalid" class="mb-2" mat-raised-button (click)="submitReview(item.productid)">Submit Review</button>
+                        </div>
+                      </div>
+                </form>
+
+
+
+              }
+
+
+
+
+
+          </div>
+        </div>
+
+
+
+
+      </div>
+    </div>
+
+  }
+
+
+</div>
+
+
+
+
+

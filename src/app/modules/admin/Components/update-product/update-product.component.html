@@ -1,0 +1,129 @@
+@if (jwt !=null) {
+
+  <div class="d-flex justify-content-center m-5" >
+    <div class="card d-flex justify-content-center" style="width: 30%;height: 60%; background-color:#ffffff;">
+      <h4 class="text-center text-primary fw-bold py-3" style="font-size:30px">Update Product</h4>
+      <div class="card-body">
+        <div class="row text-center d-flex justify-content-center">
+          <div class="col-lg-12">
+                <form [formGroup]="productform">
+
+                  <div>
+                    <div class="d-flex justify-content-center mb-4">
+                      @if(imagePreview !=null && isloaddefault ){
+                        <img id="selectedAvatar" [src]="imagePreview | bytearray2img : 'image/jpeg' "
+                        class="rounded-circle" style="width: 200px; height: 200px; object-fit: cover;" alt="example placeholder" />
+                      }
+                      @else if (imagePreview !=null) {
+                        <img id="selectedAvatar" [src]="imagePreview "
+                        class="rounded-circle" style="width: 200px; height: 200px; object-fit: cover;" alt="example placeholder" />
+                      }
+                      @else {
+
+                        <img id="selectedAvatar" src="https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg"
+                        class="rounded-circle" style="width: 200px; height: 200px; object-fit: cover;" alt="example placeholder" />
+                      }
+                    </div>
+                    <div class="d-flex justify-content-center ">
+                        <div data-mdb-ripple-init class="btn btn-primary btn-rounded">
+                          <label>
+                            <div class="d-flex justify-content-center align-items-center">
+
+                              <span class="align-content-center">Select a File</span>
+                              <input mat-input type="file" id="fileInput" (change)="onFileSelected($event)" hidden>
+                              <mat-icon >attach_file</mat-icon>
+                            </div>
+
+                          </label>
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+                  <div class="mb-3">
+
+                    <label for="category" class="form-label fw-bold text-primary" style="font-size: 20px;" >Category</label>
+
+                    <mat-form-field appearance="outline" style="width: 100%; height: 75px;" >
+                      <mat-label>Select Category</mat-label>
+                      <mat-select formControlName="categoryid">
+                        @for (category of categoryList; track $index) {
+                          <mat-option [value]="category.id">{{category.name}}</mat-option>
+                        }
+                      </mat-select>
+                      <div class="text-danger fw-bold">
+                        @if (productform.controls['categoryid'].touched) {
+
+                        @if (productform.controls['categoryid'].hasError('required')) {
+
+                        <span>This is Required</span>
+                        }
+                        }
+                      </div>
+                    </mat-form-field>
+
+                  </div>
+                  <div class="mb-3">
+                    <label for="name" class="form-label text-primary fw-bold" style="font-size: 20px;">Name</label>
+                    <input type="text" class="form-control " formControlName="name" style="width:100% ;" id="name" placeholder="Name">
+                    <div class="text-danger fw-bold">
+                      @if (productform.controls['name'].touched) {
+
+                      @if (productform.controls['name'].hasError('required')) {
+
+                      <span>Name is Required</span>
+                      }
+                      }
+                    </div>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="price" class="form-label text-primary fw-bold" style="font-size: 20px;">Price</label>
+                    <input type="number" class="form-control " formControlName="price" style="width:100% ;" id="price" placeholder="Price">
+                    <div class="text-danger fw-bold">
+                      @if (productform.controls['price'].touched) {
+
+                      @if (productform.controls['price'].hasError('required')) {
+
+                      <span>Name is Required</span>
+                      }
+                      }
+                    </div>
+                  </div>
+
+
+
+                  <div class="mb-3">
+                    <label for="description" class="form-label text-primary fw-bold" style="font-size: 20px;">Description</label>
+                    <textarea class="form-control " formControlName="description" style="width:100% ;" id="description" placeholder="Description"></textarea>
+
+                    <div class="text-danger fw-bold">
+                      @if (productform.controls['description'].touched) {
+
+                      @if (productform.controls['description'].hasError('required')) {
+
+                      <span>Description is Required</span>
+                      }
+                      }
+                    </div>
+                  </div>
+
+                  <div class="d-flex justify-content-center mt-4">
+                    <button mat-fab extended (click)="updateProduct()" [disabled]="productform.invalid" type="submit" class="btn text-white fw-bold" style="background: #0ac3e4;">Update Product</button>
+                  </div>
+                </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+
+
+}
+
+

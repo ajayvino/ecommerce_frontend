@@ -7,6 +7,8 @@ import { WishlistComponent } from './Components/wishlist/wishlist.component';
 import { ProfileComponent } from './Components/profile/profile.component';
 import { CartComponent } from './Components/cart/cart.component';
 import { PlaceorderComponent } from './Components/placeorder/placeorder.component';
+import { ReviewproductComponent } from './Components/reviewproduct/reviewproduct.component';
+import { ProductdetailsComponent } from './Components/productdetails/productdetails.component';
 
 const routes:Routes = [
   {
@@ -32,6 +34,14 @@ const routes:Routes = [
   {
     path:"placeorder",
     component:PlaceorderComponent
+  },
+  {
+    path:"reviewproduct/:id",
+    component:ReviewproductComponent
+  },
+  {
+    path:"viewproduct/:id",
+    component:ProductdetailsComponent
   },
 
 ]

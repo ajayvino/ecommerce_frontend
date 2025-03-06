@@ -1,1 +1,94 @@
-<p>wishlist works!</p>
+
+<div class="container">
+  <div class="row mt-2" >
+
+
+    @for(item of wishlistitems; track $index){
+
+
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4"  (click)="navigatetourl(item.productid)">
+
+
+
+          <div class="card  h-100 " >
+            <div class="row">
+              <div class="col-12">
+
+                <img [src]="item.img | bytearray2img : 'image/jpeg'" class="img-fluid rounded-2 w-100" alt="produt-image" style="height: 300px">
+
+              </div>
+
+              <div class="col-12">
+                <div class="card-body">
+                  <div class="row">
+
+
+                    <div class="col-12">
+                      <span><a href="/customer/viewproduct/{{item.productid}}"><strong>{{item.name}}</strong></a></span>
+
+                    </div>
+
+                    <div class="row">
+                      <div class="col-12">
+                        <span><strong>{{item.description}}</strong></span>
+
+                      </div>
+
+                    </div>
+
+
+                  </div>
+                  <br>
+                  <div class="row">
+
+                    <div class="col-6">
+                      <span> <strong>Price : Rs {{item.price}}</strong></span>
+
+                    </div>
+
+                    <div class="col-6">
+                      <span> <strong> Category: {{item.categoryname}} </strong></span>
+
+                    </div>
+
+
+                  </div>
+
+                  <br>
+
+                  <div class="row mt-4 d-flex justify-content-end align-items-end">
+
+                    <button type="button" mat-icon-button matSuffix (click)="addtocart(item.productid)">
+                      <mat-icon class="m-0 p-0">shopping_cart</mat-icon>
+                    </button>
+
+
+                    <button type="button" mat-icon-button matSuffix matTooltip="Click To Remove From Wishlist" (click)="addtowishlist(item.productid)">
+                      <mat-icon class="m-0 p-0" style="color: red;">favorite</mat-icon>
+                    </button>
+
+
+
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+      </div>
+
+    }
+
+
+  </div>
+</div>
+
+
+
+
+
+
+

@@ -98,6 +98,9 @@ export class ProductComponent {
       formData.append('description',this.productform.get("description")!.value);
       formData.append('categoryid',this.productform.get("categoryid")!.value);
 
+      console.log(formData);
+
+
       this.service.addProduct(formData).subscribe({
         next:(res)=>{
           if(res.id !=null){

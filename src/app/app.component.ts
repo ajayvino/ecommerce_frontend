@@ -15,6 +15,11 @@ export class AppComponent {
   title = 'ecommerce_frontend';
   isAdminLoggedIn:boolean=LocalstorageService.isAdminLoggedIn();
   isEmployeeLoggedIn:boolean=LocalstorageService.isEmployeeLoggedIn();
+
+  username:string="";
+
+
+
   private router=inject(Router);
 
   ngOnInit(): void {
@@ -22,6 +27,8 @@ export class AppComponent {
     this.router.events.subscribe(event=>{
     this.isAdminLoggedIn=LocalstorageService.isAdminLoggedIn();
     this.isEmployeeLoggedIn=LocalstorageService.isEmployeeLoggedIn();
+    this.username= LocalstorageService.getUserName();
+
       })
 
     }

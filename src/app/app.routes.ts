@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { TrackorderComponent } from './trackorder/trackorder.component';
 
 export const routes: Routes = [
 
@@ -28,5 +29,9 @@ export const routes: Routes = [
   {
     path:"customer",
     loadChildren:()=>import("./modules/customer/customer.module").then(e=>e.CustomerModule)
-  }
+  },
+  {
+    path:"trackorder",
+    component:TrackorderComponent
+  },
 ];

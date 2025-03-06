@@ -4,6 +4,9 @@
     <mat-toolbar class="d-flex justify-content-between align-items-center bg-primary">
         <span class="fw-bold text-white ms-2">Ecommerce</span>
         <div>
+          <button mat-fab extended class="bg-primary text-white m-2" routerLink="/trackorder">
+            Track Order
+           </button>
           <button mat-fab extended class="bg-primary text-white m-2" routerLink="/register">
            Register
           </button>
@@ -19,7 +22,7 @@
 @if(isAdminLoggedIn){
   <div >
     <mat-toolbar class="d-flex justify-content-between align-items-center bg-primary">
-        <span class="fw-bold text-white ms-2">Ecommerce</span>
+        <span class="fw-bold text-white ms-2">Hi Admin</span>
         <div>
           <button mat-fab extended class="bg-primary text-white m-2" routerLink="/admin/dashboard">
            Admin Dashboard
@@ -54,7 +57,7 @@
 @if(isEmployeeLoggedIn){
   <div>
     <mat-toolbar class="d-flex justify-content-between bg-primary">
-        <span class="fw-bold text-white ms-2">Ecommerce</span>
+        <span class="fw-bold text-white ms-2">Hi {{username}}</span>
         <div>
           <button mat-fab extended class="bg-primary text-white m-2" routerLink="/customer/dashboard">
            Customer Dashboard

@@ -1,0 +1,79 @@
+
+<div class="container">
+
+  <div class="card p-4 mt-4">
+    <div class="row">
+      <div class="col-12">
+
+        <h5>Tracking Page</h5>
+        <form [formGroup]="trackingform" >
+          <div class="mb-3 mt-3">
+
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Enter Your Tracking ID</mat-label>
+              <input matInput formControlName="trackingid" placeholder="Enter Your Tracking ID">
+            </mat-form-field>
+
+
+          </div>
+
+          <button (click)="getTrackingInfo()" [disabled]="trackingform.invalid" class="btn btn-primary">Submit</button>
+        </form>
+
+      </div>
+    </div>
+    <div class="card-body">
+
+    </div>
+  </div>
+</div>
+
+@if(orderstatus!=null){
+  <div class="d-flex justify-content-center align-items-center mt-2">
+
+    <div>
+      <div class="card" style="width: 350px; height:350px">
+        <div class="d-flex justify-content-center">
+
+          <h4 class="text-center text-white bg-primary w-100 fs-2">Order Status</h4>
+        </div>
+        <div class="card-body" >
+
+          <div>
+
+            <span><strong>Tracking ID :</strong> {{orderstatus.trackingid}}</span>
+
+          </div>
+          <div>
+
+            <span><strong>User Name :</strong> {{orderstatus.username}}</span>
+
+          </div>
+          <div>
+
+            <span><strong>Address :</strong> {{orderstatus.address}}</span>
+
+          </div>
+          <div>
+
+            <span><strong>Amount :</strong> {{orderstatus.amount | currency : "INR"}}</span>
+
+          </div>
+
+          <div>
+
+            <span><strong>Order Status :</strong> {{orderstatus.orderStatus}}</span>
+
+          </div>
+
+          <div>
+
+            <span><strong>Date :</strong> {{orderstatus.date | date : "medium"}}</span>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+}

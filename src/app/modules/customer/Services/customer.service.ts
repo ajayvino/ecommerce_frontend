@@ -94,6 +94,40 @@ export class CustomerService {
       }
 
 
+      addReview(reviewDTO:any) :Observable<any>{
+
+        return this.http.post(BASIC_URL+"/api/customer/createreview",reviewDTO,{
+          headers:this.createAuthorizationHeader()
+        });
+
+      }
+
+      getProductDetails(id:number):Observable<any>{
+        return this.http.get(BASIC_URL+`/api/customer/getProductDetails/${id}`,{
+          headers:this.createAuthorizationHeader()
+        });
+
+      }
+
+      getwishlistbyuserid():Observable<any>{
+        const userid = LocalstorageService.getUserId();
+        return this.http.get(BASIC_URL+`/api/customer/getwishlistbyuserid/${userid}`,{
+          headers:this.createAuthorizationHeader()
+        });
+
+      }
+
+
+
+
+
+      addwishlist(wishListDTO:any):Observable<any>{
+
+        return this.http.post(BASIC_URL+"/api/customer/savewishlist",wishListDTO,{
+          headers:this.createAuthorizationHeader()
+        });
+
+      }
 
 
 

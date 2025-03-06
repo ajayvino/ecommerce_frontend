@@ -1,0 +1,62 @@
+<div class="container mt-2">
+
+  <div class="row">
+
+    <div class="card mb-2  col-4">
+      <h3>P</h3>
+      <div class="card-body">
+        <span><strong>{{data.placed}}</strong></span>
+      </div>
+    </div>
+
+    <div class="card  mb-2  col-4">
+      <h3>S</h3>
+      <div class="card-body">
+        <span><strong>{{data.shipped}}</strong></span>
+      </div>
+    </div>
+
+    <div class="card  mb-2 col-4">
+      <h3>D</h3>
+      <div class="card-body">
+        <span><strong>{{data.delivered}}</strong></span>
+      </div>
+    </div>
+
+    <div class="card  mb-2 col-4">
+      <h3>Orders</h3>
+
+      <div class="card-body">
+        <div>
+          <h3><strong>{{data.currentMonthOrders}}</strong></h3>
+          <span>Current Month Orders</span>
+
+        </div>
+        <div>
+          <h3><strong>{{data.previousMonthOrders}}</strong></h3>
+          <span>Previous Month Orders</span>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="card  mb-2 col-4">
+      <h3>Earnings</h3>
+
+      <div class="card-body">
+        <div>
+          <h3><strong>{{data.currentMonthEarnings | currency :"INR"}}</strong></h3>
+          <span>Current Month Earnings</span>
+
+        </div>
+        <div>
+          <h3><strong>{{data.previousMonthEarnings | currency :"INR"}}</strong></h3>
+          <span>Previous Month Earnings</span>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
