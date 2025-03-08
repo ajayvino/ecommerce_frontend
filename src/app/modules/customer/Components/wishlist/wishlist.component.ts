@@ -10,7 +10,7 @@ import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-wishlist',
-  imports: [Bytearray2imgPipe,MatIconModule,MatButtonModule,MatTooltipModule,RouterLink],
+  imports: [Bytearray2imgPipe,MatIconModule,MatButtonModule,MatTooltipModule],
   templateUrl: './wishlist.component.html',
   styleUrl: './wishlist.component.css'
 })

@@ -9,6 +9,7 @@ import { CartComponent } from './Components/cart/cart.component';
 import { PlaceorderComponent } from './Components/placeorder/placeorder.component';
 import { ReviewproductComponent } from './Components/reviewproduct/reviewproduct.component';
 import { ProductdetailsComponent } from './Components/productdetails/productdetails.component';
+import { RazorpayComponent } from './Components/razorpay/razorpay.component';
 
 const routes:Routes = [
   {
@@ -42,6 +43,10 @@ const routes:Routes = [
   {
     path:"viewproduct/:id",
     component:ProductdetailsComponent
+  },
+  {
+    path:"payment/:amount",
+    component:RazorpayComponent
   },
 
 ]

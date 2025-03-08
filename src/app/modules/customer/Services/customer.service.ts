@@ -129,6 +129,16 @@ export class CustomerService {
 
       }
 
+      createTransaction(amount:number):Observable<any>{
+        return this.http.get(BASIC_URL+`/api/customer/createTransaction/${amount}`,{
+          headers:this.createAuthorizationHeader()
+        });
+
+      }
+
+
+
+
 
 
 

@@ -23,7 +23,7 @@ import { PlaceorderComponent } from '../placeorder/placeorder.component';
 
 @Component({
   selector: 'app-cart',
-  imports: [MatIconModule, Bytearray2imgPipe,CurrencyPipe,MatButtonModule,MatCardModule,ReactiveFormsModule,MatDialogModule],
+  imports: [MatIconModule, Bytearray2imgPipe, CurrencyPipe, MatButtonModule, MatCardModule, ReactiveFormsModule, MatDialogModule],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css'
 })
@@ -169,6 +169,10 @@ export class CartComponent {
   }
 
   placeorder(){
+
+
+
+    localStorage.setItem("orderamount",this.order.amount);
     this.dialog.open(PlaceorderComponent);
   }
 

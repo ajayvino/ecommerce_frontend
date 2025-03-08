@@ -22,7 +22,7 @@ export class OrdersComponent {
   private service= inject(AdminService);
   private snackbar=inject(MatSnackBar);
   ordersList:any;
-  displayedColumns: string[] = ['TrackingId','OrderId', 'User Name', 'Amount', 'Description', 'Address','Date','Status','Action'];
+  displayedColumns: string[] = ['TrackingId','OrderId', 'User Name', 'Amount', 'Description', 'Address','Date','Status','Action','Razorpay Id','Razorpay Signature'];
   @ViewChild(MatSort) sort: any;
   @ViewChild(MatPaginator) paginator: any;
   dataSource = new MatTableDataSource<any>();

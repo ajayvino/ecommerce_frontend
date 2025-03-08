@@ -52,7 +52,7 @@
       <td mat-cell *matCellDef="let ordersLists"> {{ordersLists.orderStatus}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="Action">
+      <ng-container matColumnDef="Action">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Action</th>
       <td mat-cell *matCellDef="let ordersLists">
         <button mat-raised-button color="primary" [matMenuTriggerFor]="menu">
@@ -73,6 +73,15 @@
 
         </mat-menu>
       </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Razorpay Id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Razorpay ID</th>
+      <td mat-cell *matCellDef="let ordersLists"> {{ordersLists.razorpaytransactionid}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Razorpay Signature">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Razorpay Signature</th>
+      <td mat-cell *matCellDef="let ordersLists"> {{ordersLists.razorpaysignature}} </td>
     </ng-container>
 
 
